@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tanay Sharda — Lead Frontend Engineer</title>
+<meta name="description" content="Lead frontend engineer with 10+ years building fast React and TypeScript products and the teams behind them.">
+<style>
+:root{
+  --bg:#fbfaf7; --surface:#ffffff; --ink:#15171a; --muted:#5a6068; --line:#e4e1da;
+  --accent:#1f4fd8; --accent-ink:#ffffff; --chip:#eef1f8;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1115; --surface:#171a20; --ink:#eceef2; --muted:#9aa2ad; --line:#2a2f38;
+    --accent:#7ea2ff; --accent-ink:#0f1115; --chip:#1d2230; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --surface:#171a20; --ink:#eceef2; --muted:#9aa2ad; --line:#2a2f38;
+  --accent:#7ea2ff; --accent-ink:#0f1115; --chip:#1d2230; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:780px;margin:0 auto;padding:0 22px}
+nav{display:flex;gap:20px;justify-content:flex-end;padding:22px 0;font-size:14px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+.hero{padding:34px 0 46px}
+.kicker{color:var(--muted);font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+h1{font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.12;margin:10px 0 16px;letter-spacing:-.02em}
+.lead{font-size:1.15rem;color:var(--muted);max-width:620px;margin:0 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;
+  border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 54px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.stat b{display:block;font-size:1.7rem;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:14px}
+section{margin:0 0 56px}
+h2{font-size:1.35rem;margin:0 0 20px;letter-spacing:-.01em}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px}
+.card h3{margin:0 0 2px;font-size:1.1rem}
+.meta{color:var(--muted);font-size:14px;margin-bottom:10px}
+.card p{margin:0 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{background:var(--chip);border-radius:999px;padding:4px 12px;font-size:13px}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 22px 22px}
+.tl li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.tl b{display:block}
+.co{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:7px;background:var(--chip);font-size:12px;font-weight:700;margin-right:9px;vertical-align:middle}
+img.co{display:inline-block;object-fit:cover;background:#fff;padding:0}
+.tl span{color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:8px;z-index:5}
+.skip:focus{left:12px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.card{transition:transform .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.badge{display:inline-flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted)}
+.badge i{width:8px;height:8px;border-radius:50%;background:#2fa56b;display:inline-block}
+.toggle{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;width:34px;height:30px;font-size:15px;cursor:pointer;line-height:1}
+.toggle:hover{color:var(--ink)}
+nav{align-items:center}
+.bars{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.bars figcaption{font-size:13px;color:var(--muted);margin-bottom:10px}
+.bar{display:grid;grid-template-columns:54px 1fr 42px;gap:10px;align-items:center;font-size:13px;margin-bottom:6px}
+.bar span{display:block;height:10px;border-radius:6px;width:var(--w);background:var(--accent);transform-origin:left;animation:grow 1.1s ease-out both}
+.bar.before span{background:var(--line)}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.bar span{animation:none}.card{transition:none}}
+@media (max-width:560px){.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+<div class="wrap">
+  <nav>
+    <a href="#work">Work</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    <button class="toggle" id="theme" type="button" aria-label="Switch between light and dark theme">◐</button>
+  </nav>
+
+  <header class="hero">
+    <div class="badge"><i></i>Open to lead &amp; senior frontend roles · Hyderabad · Remote-friendly</div>
+    <h1>Tanay Sharda</h1>
+    <p class="lead">Lead frontend engineer. I build fast, accessible React and TypeScript products, and lead the teams that ship them.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:tanay.live@gmail.com">Get in touch</a>
+      <a class="btn" href="https://linkedin.com/in/tanaysharda" rel="noopener">LinkedIn</a>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>10+</b><span>years building web and mobile products</span></div>
+    <div class="stat"><b>60K+</b><span>users on a product I founded, in 16 months</span></div>
+    <div class="stat"><b>2.5s → 2.0s</b><span>first contentful paint, Underdog Pick’em</span></div>
+  </div>
+
+  <section id="work">
+    <h2>Selected work</h2>
+
+    <article class="card">
+      <h3>Underdog Pick’em</h3>
+      <div class="meta">Technical Lead · Underdog Fantasy Sports · 2022–2025</div>
+      <p>Built and scaled the UI and core business logic of the company’s primary revenue-generating product. Tuned performance and state management, cutting first contentful paint from 2.5s to 2.0s and reducing bundle size. Led feature teams, set engineering standards, introduced Jest testing patterns, and rolled out AI-assisted development.</p>
+      <ul class="chips"><li>React</li><li>Redux</li><li>Webpack</li><li>Jest</li><li>Performance</li></ul>
+      <figure class="bars" aria-label="First contentful paint fell from 2.5 seconds to 2.0 seconds">
+        <figcaption>First contentful paint, before and after performance tuning</figcaption>
+        <div class="bar before"><em style="font-style:normal">Before</em><span style="--w:100%"></span><b>2.5s</b></div>
+        <div class="bar"><em style="font-style:normal">After</em><span style="--w:80%"></span><b>2.0s</b></div>
+      </figure>
+    </article>
+
+    <article class="card">
+      <h3>Polllzy</h3>
+      <div class="meta">Founder &amp; CEO · 2018–2020</div>
+      <p>Took a mobile product from concept to launch: architecture, UI/UX and full-stack development for iOS and Android. Built viral product loops that grew it organically to 60,000+ active users in 16 months across India and the US.</p>
+      <ul class="chips"><li>React Native</li><li>Product</li><li>Growth loops</li><li>0 → 1</li></ul>
+    </article>
+
+    <article class="card">
+      <h3>MySchoolPage</h3>
+      <div class="meta">Frontend Engineering Manager · MySchoolPage · 2020–2021</div>
+      <p>Managed six frontend engineers and led the architectural rewrite and modernization of a core education-commerce site and its internal dashboards, with a focus on web accessibility. Owned scoping and releases in a fully remote team.</p>
+      <ul class="chips"><li>Team leadership</li><li>Accessibility</li><li>Architecture</li><li>Remote</li></ul>
+    </article>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="tl">
+      <li><b><img class="co" src="data:image/jpeg;base64,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" alt="" width="26" height="26">Sr. Engineer II (Contract), Accellor</b><span>2026–present · Principal frontend developer; scoping and architecture for new product initiatives</span></li>
+      <li><b><img class="co" src="data:image/jpeg;base64,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" alt="" width="26" height="26">Technical Lead, Underdog Fantasy Sports</b><span>2022–2025 · Pick’em platform, performance, testing, team leadership</span></li>
+      <li><b><img class="co" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCABQAFADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAAIBBgcFAwT/xAAzEAABAwMBBwMEAQIHAAAAAAABAgMEAAURBhMhMTNRcrEHEkEUMlOSkSNCFiJSYXGh0f/EABsBAQACAwEBAAAAAAAAAAAAAAABAgMFBgQH/8QAJREAAgIBBAEDBQAAAAAAAAAAAAECESEDBRIxBCJBYRMyUVJx/9oADAMBAAIRAxEAPwCzOvO7df8AVc+4/wBx60m2e/K5+xod56+4+aStefAG3Y+2e/K5+xo2z35XP2NJRQWx9s9+Vz9jRtnvyufsaSigtj7Z78rn7GjbPflc/Y0lFBbH2z35XP2NM287tU/1XPuH9x615UzfNT3DzQJuyXeevuPmkp3eevuPmkoH2FFFQo4QojoaEFp0zoHUGq4L863ojsRGVewyZbmyQpX+lJwckfPSu0r0c1QGHXUTrI4GkFxQbllRwBk7vbWmO6cev1+h2OPMjQrZarZGkNQlwkPsqcd2gKlIUQCQEbs5xknjXPsLEZvU8phqPbkzIkK6RpK4MREfKUutpaK0o3AkJVjPHBrN9Ne522nsHjwUY6kW7xdpW7p0svHz2lZgIOQD1GaKhPLT2jxU1hOJCmb5qe4eaWmb5qe4eaErsl3nr7j5pCcJJ6DNO7z19x815q5au0+KBmkK9Hrk0I6ZGqdOR3pDaXG2H5CkLUFcMAjf0qmai07dNMXx6z3ZlLchKQoFCvclaTwUk/I4/wAGtf8AUBr09Ve7KvV715TJFua9qYaAWy3k/ccZznPD4rha4gXK6+sNpfk2wXyDNjoXBiwVqaL0cZOCo70kZySd2D8VllBex1O5bT48IyjoL1KUViTlh/sqtZqqu/wPI9TtIznGJM7S13VKbjtxlPMXFTPuSjOAQhQzvJ49a4l+9Qorum3bHpCzu2WNLWXJzy3i6/JJ+CsknHXJz8bhnNluujocnQl+kTdJ2ixzrax9RHVbp+3UcZyh1Oeg4/8Ale1r0rYV6ItUux6Phar2sbaXBz67ZyW3MfalPxg5GOO7541LUmenU0tx1W9NzirjdqDUqumsR5/3HRmTOmZL2g5GqhOgpYZkCOYynMPKJxvCem/h0BNcPBq9NWG1n0Nud7etyWrmxdkxg6r3FbSMoyjB6ZPEZq5XrSdkjaaWvTWiIeoLb9F7k3SNPJkh3H3KTxwOOB/xiqcLNRHZ56sVKFKopv7m3beaStdZ9ljOTE6Zvmp7h5pfimb5qe4eaoaRdku89fcfNeZGUkdRivR3nr7j5pKB9mmXH1L0xeVRXrz6esT5MZhLCHXphx7U/GAnGM5/mviT6q3U+ocXUzlui7GNHMNuA2SlCGTxAV1yBvx8YxiqBRVubNnPefMk1LnTtPCira6ulmvmy+f47sECx3u06f0gIDV1jlp15yYp1wKOcHJH2jJwn/fjRYtb6Ysf0NwY0QlN4htbNMlqctDbqsEe9acbzvPX/oYodFObKLdfIUlJNY69McZvCrGclska3el6FudhlQUreuFyNyckpX7QCSCUhOOG7jn5rsW/1D0/Y3Hblp7RLdvuzkfYbRM1amE7h/m2eN53Dj/PGs7opyZEN08mElNSVpUm0m1V9NrDy89gSScneaZvmp7h5paZvmp7h5qp4F2S7z19x80lO7z19x80lA+wooooQFFFFAFFFFAFM3zU9w80tM3zU9w80JXZ/9k=" alt="" width="26" height="26">Lead Frontend Engineer, Basis</b><span>2021–2022 · Feature planning, releases, technical hiring</span></li>
+      <li><b><img class="co" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCABQAFADASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAYHAgQFAQMI/8QAMhAAAQMEAQIDBQcFAAAAAAAAAQIDBAAFBhEHEiExQVEIExQiMhUjUmFxgZEXQkOjsf/EABkBAQADAQEAAAAAAAAAAAAAAAADBAUGAf/EACgRAAICAQIEBgMBAAAAAAAAAAABAgMRIWEEMUFRBRIicZGxIzLRgf/aAAwDAQACEQMRAD8A/f1KUoBSlKAUpSgFKUoBSlKAUpSgFKUoCN5vkU7FMY+3IluTOYjvIMxHWUqQwTpS0+pGx29N13ospibBZmRXEuMPIDja0+CkkbB/g1hcIbNxtUmBIQFsyGlMrSfMKBB/7UD4guh/pNBizHNORJTtuBV32UrPSN/oQP2qi7Zw4tVt+mUW1s4tZ+U18Gkqa58C7ksShJJ7qSePhxfyWLSlKvGaKUpQClKUArFfUG1FABVrsD61lSgKSxbOeQIz+TXDNIrzNugxHHh76L7lLTwICG0K0OoHfqfAHffvlbmZeIeyw3fXWV/ExXmr46juD0JkIcV/qB7V37y07yfkrdmiKIxS2SeqfKB7Tnk/4W/VKT9SvDfh3FT+52uHdcfl2aW0DElR1xnGwO3QpJSR/Brn/DuFm7HNzc4xTSb6tvLfssJL/emDovHuJjPhZUV1qudmG0uUcJqOd3lyfbTOuTZYeakxm5DDiXGnEhaFpOwpJGwQf0r6VQfHmbZLaeL8n46Mf4rOcPjPMw4zvczWUj7hxI/uABSNefyfirpez1l3JuVWq9L5AiyPcsOtphy5MP4Va1Hq94jp6U7Cfl767b1s+W3G1Npdzi6fE67JV14eZJ9NE1zT3LqpSlSmkKUpQCqx5j5MwzjvGUvZpe3ozEn5WbZbz1TbiR4toA0Up7jatj0KhvRl+b5XBwbjq9Zhcm3HYtqhuS3G2xtSwhO+kfmTob8t7qmOD+Lrhf7sOd+WmEzsyvAEi3w307assU92m20H6V9J3vxG/wARUTJGmE4t2/r277f0RtlXJOHP63OLC5N9pXJrWh7j3hexYjjqEAR3soklpYb8j7sFBSPP6SPzNSSBffa4tim3LthHHWQM9ipq3XR2G8R6BTgKd/tW57UHE+Yct8WwbNh10jsPxJwlPQZTxaamI6CkAqAPdJPUARo9/PVTPhbDL9x9wZj+IZLdk3O5wGVIdfQtS0J2tSktpUruUoBCQT5J8qsOVaqTjFdsa/0i9UpPzN+5VGYqkZberfkrllvvFnIlvHRFl3NtLkCb4/cqltdTRB7gdfSe5HSQe0jtvPczGQi18wYhdcenI+U3KLHVIhSO+utKk70D6DqFXetCHG1IWkKSoaKSNgj86+aIsZuKIzbDaWQNBsJHSB6a8Kozim/NDT6Kk+ClGbton5W+emU92tNd00QvG+ZONMtv0ay49lkSbcJIKmoyUOJWrSSo/Uka0AanVaMWzWiDKVJhWuFGeUNKcZYQhR/Ugbrer2OepbpVqj+VpvZY+2xSlK9JTxSUrQULSFJUNEEbBFe0pQClKUApSlAKUpQH/9k=" alt="" width="26" height="26">Frontend Engineering Manager, MySchoolPage</b><span>2020–2021 · Led six engineers; site rewrite</span></li>
+      <li><b><img class="co" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCABQAFADASIAAhEBAxEB/8QAGwABAAMBAQEBAAAAAAAAAAAAAAEGBwUIAgT/xAAnEAAABAUEAwADAQAAAAAAAAAAAQIDBAUGB3QRN7GyCCE1EjFRYf/EABkBAAMBAQEAAAAAAAAAAAAAAAAFBwEGA//EACsRAAADBQYGAwEAAAAAAAAAAAABEQIDBBTBBRIxNVGCFSFFYYORBhNB8f/aAAwDAQACEQMRAD8AsQAAuQh4AAAAADZbZW1peqqETNZuzFLiTiHGzNuIUgtEn69EFzba0vStCKmsoZikRJRDbZG5EKWWij9+jCTj8NNSiHeVMCRfYdcBiZabUrqLjzT0MaAADsJQAAAAAAAAAB1ZRTNQT9l12SyiJjkNKJLimSIySZlqRHqY/VHUPV8tlz0fH09Gw8Myn8nHXElogv6fseDUU5ZauG2S6KS+h7swr5pm+TBpqhp7G62P2pRmPdiC+G1K8xnkwsftSjMe7EF8NqlZjPJic9c8lRRSyPZQedWpZM32kusyyNdbUWqVtw61JMv8Mi9j4iIKNhEpVFwUTDko9CN5pSNT/wA1IeqLY7RSHFLkxSPIL4UjynOg6SG+RNPo6T+tOZkq6L27Dm4n46y5gZv7F5EaJqnfuMHAAHUjlwAAAAbz4/fBneU30F2uftFPsU+SFJ8fvgzvKb6C7XP2in2KfJCZWjnW5mgpdnZLtaqOLZDapGY92IRfDapWYzyYmyG1SMx7sQi+G1SsxnkxnXPJUb0TZQdu2O0UhxS5MUjyC+FI8pzoLvbHaKQ4pcmKR5BfCkeU50G2dnW5qoLRyXazQYOAAKaJmAAAADefH74M7ym+gu1z9op9inyQpPj98Gd5TfQXa5+0U+xT5ITK0c63M0FLs7JdrVRxbIbVIzHuxCL4bVKzGeTE2Q2qRmPdiEXw2qVmM8mM655KjeibKDt2x2ikOKXJikeQXwpHlOdBd7Y7RSHFLkxSPIL4UjynOg2zs63NVBaOS7WaDBwABTRMwAAAAaZa64ckomWTGHmsPGuriXkuIOGQlRERJ096qIWKsbw0zUNCTOSwUJM0REUybaFOtIJJHqX7MlH/AAYiATPbChXsRNNEd5SPHT+Bw6tyKdQ8qyZXUMsNRrtubpU9SNFJlEyhZi4+T7jv5MNpUnRR6l7NRBca6VPVdRRyiWwswbfOIbd/J9tKU6JPU/ZKP2MiAHAoWZmkO+q4/oOORUtKqV1Ew/Bt1HXhpin6FlkljYSZriIVkm1qaaQaTPU/0ZqL+iu3SuFJa2lsth5VDxrSoZ5biziUJSRkadC00UYzMBrqwoV1ETTJHeUzx1A9tyKew8q0ZXUIsNP4AAAcBOP/2Q==" alt="" width="26" height="26">Founder &amp; CEO, Polllzy</b><span>2018–2020 · Cross-platform mobile app, 60K+ users</span></li>
+      <li><b><img class="co" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCABQAFADASIAAhEBAxEB/8QAGwABAAMAAwEAAAAAAAAAAAAAAAEICQMFBwb/xAAyEAABAwQBAgQFAwMFAAAAAAABAgMEAAUGEQcSIQgxQVETFCIycQlhgRU4QlJ1kbPB/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAIDBgQH/8QAIhEAAgEDBAIDAAAAAAAAAAAAAAECAwURBBIhMQdhQVGR/9oADAMBAAIRAxEAPwC/1KUoBSlKAUpUboCaVG6boCaUpQClKUApXG++zFiuSZLqGWWkFbjjiglKEgbJJPYAD1NVnzzx28G4bc3bbbJl0yuS0roWqyspUwD7fGcUlKvynqH70BZs/aaphzNynmr/AC9drXb77cLVAtcgxmI8N5TOynW1qKdFRJ2RvsBquyx/9RHhy53BMW92HKbI2o6+acYbkNp/dQbWVf8ACTXdcpYZjnLeMp5b4kusO/BaNTG4C+v5gJH3BPml1I0CggEjXbY720mk+Tc+Ptbb9NdMXCKaksRckmlJtd56yuM/Gfo82yDnDkPIMetlqcvsmH8o2UvyIayy5MVvstZTo9k6Gh2J2fWvfPDZneQZdi12t2Qy3ZztrdbDUx7u4tDgV9Klf5EFJ7nvo1VTGMXveYZOxYbDDVImPHuPJLSR5rWf8Uj1P8efar1ca8f23jnCWrJBV8Z9Z+LLllOi+6QAVfskeQHoB77qyrtSwbryKrNbratBQpRVWT3LCWY85bfp9JfnC4+ypSlcx4YKUrgmPGPb3pAT1FttSwn30Cf/ACgM2PHD4jrrk2eT+HsTuC42PWlz4F1WwvRuEofc2ojzbbP09PkVhRO9Jr4Xg3wX8hcyY4zlc64RsVx2R3jS5jKnn5Sd/e0yCPo7HSlKSD6bHevF8UijO+dLJBvjyiL7fWGZjpOifjyAFnfv9ZrciDDiW63MQIMduPFjtpZZZaT0pbQkdKUgegAAAH7UBnByB+nRmdix5+54JmcPJ5DKCs26RE+Sed16Nq61pUr2Cin814FwtzLmfh+5cFxiploipf8Alr1Y39tiShKtLQpJ+11PfpV5pPY9iQdpCARo1lZ+oDi1qx7xVtXK2NtNOXu0M3CWhA1t4LcaK9e6ktpJ9zs+tAaW4cjEbnZGsyxKFBTHv7Ldw+bjtJQqSlaApKla9dHy99+tfTDyquvgeusu6eC7GkS3C4Yb8uI2o+fQl9RSP4CtfgVYqhKc5Te6by/YpSlCIqFAKSQRsHzFTSgMUOasDvHDPiPvePgOxTBnfO2uSka646l/EYcSfXQ0DryUlQ9K0z4A8UeBcw4XBanXq32fLm2konWiU8llS3ANKcY6iA4hR7gDZTvRHqe18Qvh0xXnzDW4s9wWzIIKVf028Nt9Smt9y24nt1tE9yN7B7gjvvNjPPCVzxgVzeYfwWfe4aSeifYWzOacHvpA60/hSQaA1Zz3lrjzjTG3r1mOV223MtoKkMl5K33jr7W2gepaj7AfnQrIHnrluZzXzhdc4fjKiRHOmNAiLO1MRm9hCSf9R2VK126lHXauTHvDxznlVyTDtXFuUdalBPxZkFcRtP5ceCUgfzXfcneFrlXjO42e2vWC4ZBLmwRMkGxQH5bMRRcUkMqdSnSlgJBOtD6hrfmQL8eA3+zS0/7jN/7qszVdfBJZLzj/AISLXbb9aJ9rmonzFKjTo62HAC7sEpWAdEftViqAUpSgFKUoBTVKUBGhU63SlAKUpQClKUB//9k=" alt="" width="26" height="26">Android &amp; Web Engineer, Aisle / Smartpocket</b><span>2014–2016 · Django APIs and analytics dashboards for retail brands</span></li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="chips">
+      <li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Redux</li><li>React Native</li>
+      <li>Micro-frontends</li><li>Webpack</li><li>Core Web Vitals</li><li>Jest</li><li>Accessibility</li>
+      <li>Node.js</li><li>GraphQL</li><li>System design</li><li>Mentoring</li><li>Technical hiring</li>
+    </ul>
+  </section>
+
+  <footer id="contact">
+    <p>Open to lead and senior frontend roles, and to engineering management. Email <a href="mailto:tanay.live@gmail.com">tanay.live@gmail.com</a> or find me on <a href="https://linkedin.com/in/tanaysharda" rel="noopener">LinkedIn</a>.</p>
+  </footer>
+</div>
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  try{var s=localStorage.getItem('theme');if(s){root.setAttribute('data-theme',s);}}catch(e){}
+  btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    var dark=cur==='dark'||(!cur&&window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
